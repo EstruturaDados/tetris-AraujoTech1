@@ -1,113 +1,112 @@
-# Desafio Tetris Stack - Controle de Peças com Estruturas de Dados
+#  *Tetris Stack — Nível Mestre*
 
-Bem-vindo ao desafio **"Tetris Stack"**! Neste jogo inspirado nas mecânicas clássicas de montagem de peças, o jogador deve organizar, reservar e manipular peças em tempo real. Para isso, você, como programador, será responsável por implementar as estruturas de controle que regem a lógica das peças.
+---
 
-A empresa **ByteBros**, especializada em jogos educacionais de lógica e programação, contratou você para desenvolver o sistema de gerenciamento de peças, utilizando estruturas como **fila circular** e **pilha**.
+## Descrição do Projeto
 
-O desafio está dividido em três níveis: **Novato**, **Aventureiro** e **Mestre**, com cada nível adicionando mais complexidade ao anterior.  
-**Você deve escolher qual desafio deseja realizar.**
+O Tetris Stack – Nível Mestre é um sistema em C que simula o gerenciamento avançado de peças inspirado no jogo Tetris.
 
-🚨 **Atenção:** O nível Novato foca apenas na fila de peças, usando conceitos básicos de structs, arrays e modularização.
+O projeto utiliza estruturas de dados clássicas — fila circular, pilha, lista encadeada e snapshots (undo) — para modelar operações de jogo, como inserir peças, descartar, exibir histórico e restaurar estados.
 
-## 🎮 Nível Novato: Fila de Peças Futuras
+O sistema foi inteiramente desenvolvido em linguagem C, com modularização completa, uso de alocação dinâmica, Makefile para compilação e arquitetura organizada em múltiplos arquivos .c e .h.
 
-No nível Novato, você criará o sistema inicial de controle das peças futuras do jogo Tetris Stack. As peças possuem um **nome** (representando o tipo, como 'I', 'O', 'T', 'L') e um **id** exclusivo (identificador numérico).
+## Funcionalidades do Projeto
 
-🚩 **Objetivo:** Criar um programa em C que simula uma **fila circular** de 5 peças com as seguintes funcionalidades:
+O menu disponibiliza as seguintes operações:
 
-*   Visualizar a fila atual
-*   Jogar (remover) a peça da frente
-*   Inserir automaticamente uma nova peça no final da fila
+1 — Inserir peça na fila
 
-⚙️ **Funcionalidades do Sistema:**
+2 — Remover peça da fila
 
-*   Inicializar a fila com 5 peças geradas automaticamente.
-*   Permitir que o usuário:
-    *   Jogue uma peça (dequeue)
-    *   Insira uma nova peça (enqueue)
-    *   Visualize o estado atual da fila
-*   Manter a fila circular, reaproveitando o espaço.
+3 — Descartar peça na pilha
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+4 — Exibir fila e pilha
 
-*   O programa utiliza menus via terminal.
-*   A cada ação, o estado atualizado da fila é exibido com `printf`.
+5 — Exibir histórico de ações
 
-**Simplificações para o Nível Novato:**
+6 — Criar snapshot do estado atual (Salvar estado)
 
-*   Trabalhe **apenas com a fila**.
-*   A fila deve conter **exatamente 5 elementos**.
-*   Use uma função `gerarPeca()` para criar automaticamente novas peças.
-*   Utilize structs e arrays. Não implemente pilha.
+7 — Restaurar snapshot mais recente (Desfazer estado)
 
-## 🛡️ Nível Aventureiro: Reserva de Peças com Pilha
+0 — Sair do programa
 
-No nível Aventureiro, você irá expandir o sistema com uma **pilha de reserva de peças**, que permite ao jogador guardar peças para uso posterior.
+## O sistema oferece:
 
-🆕 **Diferença em relação ao Nível Novato:**
+- Fila circular dinâmica
 
-*   Introdução da **pilha linear** para reservar peças.
-*   A fila permanece sempre cheia com 5 peças.
+- Pilha de descarte
 
-⚙️ **Funcionalidades do Sistema:**
+- Registro de histórico completo
 
-*   Além das opções anteriores, o usuário pode:
-    *   Reservar a peça da frente da fila (push)
-    *   Usar uma peça reservada (pop)
-*   A fila continua funcionando com inserção automática.
-*   A pilha tem **capacidade máxima de 3 peças**.
+- Snapshot com deep copy da fila, pilha e histórico
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+- Validação de ações e mensagens informativas
 
-*   Menu com 4 opções:
-    * `1` - Jogar peça
-    * `2` - Reservar peça
-    * `3` - Usar peça reservada
-    * `0` - Sair
-*   O estado da fila e da pilha é exibido após cada ação.
+## Testes de Software
 
-**Simplificações para o Nível Intermediário:**
+Foram realizados três categorias de testes:
+✔️ Teste de Depuração
 
-*   A pilha não permite escolha da posição.
-*   O jogador **não escolhe o tipo da peça** — todas são geradas automaticamente.
-*   Não há comparação nem troca direta entre as estruturas.
+- Verificação de alocação de memória (malloc, free)
 
-## 🏆 Nível Mestre: Integração Total com Estratégia
+- Teste de estouro da fila / pilha
 
-No nível Mestre, você implementará uma **integração complexa** entre a fila e a pilha, simulando funcionalidades avançadas como **troca**, **desfazer** e **inversão de peças**.
+- Verificação de ponteiros nulos
 
-🆕 **Diferença em relação ao Nível Aventureiro:**
+- Teste de fluxo entre arquivos .c e .h
 
-*   Operações mais complexas e estratégicas entre as estruturas.
-*   Manipulação reversível do estado das peças.
+✔️ Teste de Funcionamento
 
-⚙️ **Funcionalidades do Sistema:**
+Cenários testados:
 
-*   Menu com múltiplas ações:
-    * `1` - Jogar peça
-    * `2` - Reservar peça
-    * `3` - Usar peça reservada
-    * `4` - Trocar peça do topo da pilha com a da frente da fila
-    * `5` - Desfazer última jogada
-    * `6` - Inverter fila com pilha
-    * `0` - Sair
-*   Controle de fila circular e pilha de reserva com atualização a cada ação.
+- Inserção em fila vazia
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+- Remoção de elemento único
 
-*   Mesmo estilo dos níveis anteriores.
-*   Agora exige controle total do fluxo e da memória entre as estruturas.
+- Descarte e empilhamento
 
-**Observações:**
+- Criação de múltiplos snapshots
 
-*   Cada operação deve ser segura e manter a integridade dos dados.
-*   A complexidade exige modularização clara e funções bem separadas.
+- Restauração de estados complexos
 
-## 🏁 Conclusão
+- Fila + pilha + histórico integrados
 
-Ao concluir qualquer um dos níveis, você terá exercitado conceitos fundamentais de estrutura de dados, como **fila circular** e **pilha**, em um contexto prático de desenvolvimento de jogos.
+- Execução repetida sem travamentos
 
-Boa sorte e divirta-se programando!
+✔️ Teste de Segurança
 
-Equipe de Ensino - ByteBros
+- Proteção contra underflow/overflow
 
+- Verificação de integridade após restauração
+
+- Bloqueio de ações inválidas
+
+- Deep copy seguro para evitar corrupção de memória
+
+## Tecnologias e Linguagens
+
+- Linguagem C (C99)
+
+- GCC como compilador padrão
+
+- Makefile para automação
+
+- VSCode
+
+- Git 
+
+Bibliotecas e Frameworks
+
+## Bibliotecas utilizadas:
+
+- <stdio.h>
+
+- <stdlib.h>
+
+- <string.h>
+
+- <time.h>
+
+---
+
+© 2025 — Desenvolvido para fins educacionais | Estácio de Sá.

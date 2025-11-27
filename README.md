@@ -1,4 +1,4 @@
-#  *Tetris Stack — Nível Mestre*
+#  *Tetris Stack – Nível Mestre*
 
 
 ## Descrição do Projeto

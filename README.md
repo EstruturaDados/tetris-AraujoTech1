@@ -45,6 +45,7 @@ O menu disponibiliza as seguintes operações:
 ## Testes de Software
 
 Foram realizados três categorias de testes:
+
 ✔️ Teste de Depuração
 
 - Verificação de alocação de memória (malloc, free)
